@@ -1,0 +1,24 @@
+version: 2
+task_description: 'Teach the model how to create dynamic focus queries for Instana.'
+created_by: irfadkp
+seed_examples:
+  - question: How can I filter all Tomcat instances?
+    answer: entity.type:tomcat
+  - question: How can I find all JVMs version 1.8?
+    answer: entity.jvm.version:1.8.*
+  - question: How can I find all active incidents?
+    answer: event.state:open event.type:incident
+  - question: How can I filter entities in a specific namespace?
+    answer: entity.kubernetes.namespace:my-namespace
+  - question: How can I find all entities associated with a specific service?
+    answer: entity.service.name:my-service
+  - question: How can I find entities with response times greater than 2 seconds?
+    answer: entity.response.time:>2000
+  - question: How can I find entities running on a specific IP address?
+    answer: entity.host.ip:192.168.1.1
+  - question: How can I find entities with an error rate above 5%?
+    answer: entity.error.rate:>0.05
+  - question: How can I filter entities associated with a particular application?
+    answer: entity.application.name:my-application
+  - question: How can I find entities that are unhealthy?
+    answer: entity.health.state:unhealthy
