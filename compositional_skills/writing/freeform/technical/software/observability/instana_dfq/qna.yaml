@@ -1,0 +1,106 @@
+version: 2
+task_description: 'Teach the model how to create dynamic focus queries for Instana.'
+created_by: irfadkp
+seed_examples:
+  - question: Give me the query for custom zone k8s-demo
+    answer: entity.zone:"k8s-demo"
+  - question: My application name is Discount Canary Build. Give me the query
+    answer: entity.application.name:"Discount Canary Build"
+  - question: Give me the query for filtering all java entities
+    answer: entity.type:java
+  - question: Give me the query for getting all the custom zones starting with K8
+    answer: entity.zone:K8*
+  - question: My zone is us-central1-a. Can you give me the query for this
+    answer: entity.zone:"us-central1-a"
+  - question: Filter out all the events which is in open state
+    answer: event.state:open
+  - question: Give me the entity whose tag is jackywindows2019
+    answer: entity.tag:jackywindows2019
+  - question: Filter out all the Kubernetes entities
+    answer: kubernetes
+  - question: Give me all the openshift entities
+    answer: openshift
+  - question: Give me the query for filtering all the hosts with python entities
+    answer: entity.type:python
+  - question: Give me the query for the hosts which is in us-central1-a zone or k8s-demo zone
+    answer: entity.zone:"us-central1-a"ORentity.zone:"k8s-demo"
+  - question: Give me the entities which are in robot-shop namespace
+    answer: entity.kubernetes.namespace:robot-shop
+  - question: Give me the Kubernetes entity which has the node gke-demo-us-cluster-pool-1f2519fe-aif4
+    answer: entity.kubernetes.node.name:gke-demo-us-cluster-pool-1f2519fe-aif4
+  - question: Give me the entity which has the pod  eum-sim-9dd8f5b4f-99zfp
+    answer: entity.kubernetes.pod.name:eum-sim-9dd8f5b4f-99zfp
+  - question: Give me the Kubernetes entity which has deployment web
+    answer: entity.kubernetes.deployment.name:web
+  - question: Filter out the Kubernetes entity which has a container named web
+    answer: entity.kubernetes.container.name:payment
+  - question: Give me the Kubernetes entity which a container that has a restart count of 4
+    answer: entity.kubernetes.container.restartCount:4
+  - question: Give me a daemonset named instant-agent
+    answer: entity.kubernetes.daemonset.name:instana-agent
+  - question: Give me all the events that has event severity as warning
+    answer: event.severity:warning
+  - question: Can you filter out the events that has event severity as critical
+    answer: event.severity:critical
+  - question: Filter out all events whose state is closed
+    answer: event.state:closed
+  - question: Show me all the hosts with event state as offline
+    answer: event.type:offline
+  - question: Give me all the hosts that has a event state of online
+    answer: event.type:online
+  - question: Give me all hosts that has events whose source is infra
+    answer: event.source:infra
+  - question: Give me the entities which has instant agent mode as apm
+    answer: entity.agent.mode:apm
+  - question: Give me the entities which has instant agent mode as disabled
+    answer: entity.agent.mode:disabled
+  - question: Give me the entities which has instant agent mode as infrastructure
+    answer: entity.agent.mode:infrastructure
+  - question: Give me the entities which has instant agent mode as iqm
+    answer: entity.agent.mode:infrastructure
+  - question: Give me the hosts that has instana agent log level as debug
+    answer: entity.agent.logLevel:debug
+  - question: Give me the entities that has instana agent log level as info
+    answer: entity.agent.logLevel:info
+  - question: Filter out the entities that has agent update mode as auto
+    answer: entity.agent.updateMode:auto
+  - question: Give me the host that has a container with container id 28e3e4f756ddb774021f9f58f9
+    answer: entity.containerd.containerId:28e3e4f756ddb774021f9f58f9
+  - question: Give me the query for the processes that uses or runs in docker
+    answer: entity.process.runsIn:docker
+  - question: Give me the query for processes that has python executable
+    answer: entity.process.exec:python
+  - question: Can you give the query for process that has process id of 850
+    answer: entity.process.id:850
+  - question: Give me the query for a nodejs  app whose name is sum-sim
+    answer: entity.nodejs.app.name:eum-sim
+  - question: Give me the host called TOLUENE1
+    answer: entity.host.name:TOLUENE1
+  - question: Give me the host whose fqdn or absolute domain name is toluene1.fyre.ibm.com
+    answer: entity.host.fqdn:toluene1.fyre.ibm.com
+  - question: Give me the hosts which has linux operating system
+    answer: entity.host.os.name:linux
+  - question: Give me the entities or hosts which uses os version 6.8.0-38-generic
+    answer: entity.host.os.version:6.8.0-38-generic
+  - question: Give me the host which uses amd64 architecture
+    answer: eentity.host.os.arch:amd64
+  - question: Give me the host whose cpu count is 8
+    answer: entity.host.cpu.count:8
+  - question: Give me the entity or host which has a python app named loader.py
+    answer: entity.python.app.name:loader.py
+  - question: Give me the hosts or entities that uses python versions of 3
+    answer: entity.python.version:3*
+  - question: Give me the query for microsoft azure resource whose name is stockunit
+    answer: entity.azure.name:stockunit
+  - question: Filter out the cluster whose name is demo-us-cluster
+    answer: entity.kubernetes.cluster.label:demo-us-cluster
+  - question: Give me the query for power system whose name is Server-8247-22L-SN101402A
+    answer: entity.phmc.system.name:Server-8247-22L-SN101402A
+  - question: Give me the query where the hostname where db2 is running is ut53p30.rch.stglabs.ibm.com
+    answer: entity.ibmi.db2.hostname:ut53p30.rch.stglabs.ibm.com
+  - question: Give me the query for the python process running in the cluster demo-us-cluster
+    answer: entity.kubernetes.cluster.label:demo-us-cluster AND entity.process.exec:python
+  - question: Filter out all the java processes that is running in applications whose names start with robot
+    answer: entity.application.name:robot* AND entity.process.exec:java
+  - question: Find all the bootstrap application running in jvm
+    answer: entity.jvm.app.name:bootstrap

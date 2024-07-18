@@ -1,6 +1,6 @@
 Title: Filtering and Dynamic Focus
 Link: https://www.ibm.com/docs/en/instana-observability/current?topic=instana-filtering-dynamic-focus
-Revision Link: https://www.ibm.com/docs/en/instana-observability/current?topic=instana-filtering-dynamic-focus (accessed on 2024-07-16)
+Revision Link: https://www.ibm.com/docs/en/instana-observability/current?topic=instana-filtering-dynamic-focus
 License: IBM Documentation Terms of Use
 SPDX Identifier: None
 Creator: IBM Corporation
