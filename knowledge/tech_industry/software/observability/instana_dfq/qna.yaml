@@ -1,6 +1,7 @@
 version: 2
 task_description: 'Teach the model how to create dynamic focus queries for Instana.'
 created_by: irfadkp
+domain: observability
 seed_examples:
   - question: Give me the Dynamic Focus Query for custom zone k8s-demo
     answer: entity.zone:"k8s-demo"
@@ -172,3 +173,8 @@ seed_examples:
     answer: entity.kubernetes.cluster.label:"Turbo"
   - question: Generate the dynamic focus query for the Kubernetes deployment named 'catalogue' ?
     answer: entity.kubernetes.deployment.name:catalogue
+document:
+  repo: https://github.com/irfadkp/knowlege_contributions.git
+  commit: 6cefb19
+  patterns:
+    - README.md
